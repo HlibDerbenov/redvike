@@ -12,7 +12,7 @@ export function isTheSameDay(
   );
 }
 
-function addLeadingZero(target: string, targetLength: number): string {
+export function addLeadingZero(target: string, targetLength: number): string {
   return target.padStart(targetLength, '0'); /* 1 => 01 */
 }
 

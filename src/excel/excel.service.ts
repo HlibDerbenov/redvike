@@ -27,4 +27,28 @@ export class ExcelService {
 
     return rows;
   }
+
+  public async csvBufferToJson(
+    buffer: Buffer,
+    delimiter = ';',
+  ): Promise<Record<string, string>[]> {
+    const [headersString, ...content] = buffer
+      .toString()
+      .replace(/\r/g, '')
+      .split('\n');
+    const headers = headersString.split(delimiter);
+
+    return content.reduce((accumulator, current) => {
+      const values = current.split(delimiter);
+      const outputObject = {};
+
+      values.forEach((value, index) => {
+        outputObject[headers[index]] = value;
+      });
+
+      accumulator.push(outputObject);
+
+      return accumulator;
+    }, []);
+  }
 }

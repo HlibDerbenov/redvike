@@ -14,12 +14,12 @@ export class AmenityController {
     private readonly reservationService: ReservationService,
   ) {}
 
-  @Get(':id/reservation')
+  @Get(':amenity_id/reservation')
   @ApiOkResponse({
     type: [GetAmenitiesOutputDto],
   })
   public async getReservations(
-    @Param('id') amenity_id: number,
+    @Param('amenity_id') amenity_id: number,
     @Query() params: GetAmenitiesParamsDto,
   ): Promise<GetAmenitiesOutputDto[]> {
     const reservations = await this.reservationService.getReservations();

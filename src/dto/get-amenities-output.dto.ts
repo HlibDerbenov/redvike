@@ -1,7 +1,7 @@
 import { ApiProperty, PickType } from '@nestjs/swagger';
-import { Reservation } from './reservation.dto';
+import { ReservationDto } from './reservation.dto';
 
-export class GetAmenitiesOutputDto extends PickType(Reservation, [
+export class GetAmenitiesOutputDto extends PickType(ReservationDto, [
   'amenity_id',
   'user_id',
 ]) {

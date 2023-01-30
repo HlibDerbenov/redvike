@@ -1,4 +1,8 @@
-import { BadRequestException, ValidationPipe } from '@nestjs/common';
+import {
+  BadRequestException,
+  ValidationPipe,
+  VersioningType
+} from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import helmet from 'helmet';
@@ -8,6 +12,9 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors();
+  app.enableVersioning({
+    type: VersioningType.URI,
+  });
   app.use(helmet());
   app.useGlobalPipes(
     new ValidationPipe({

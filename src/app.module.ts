@@ -4,6 +4,7 @@ import { ExcelModule } from './excel/excel.module';
 import { FileModule } from './file/file.module';
 import { ReservationModule } from './reservation/reservation.module';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { UserModule } from './user/user.module';
     ExcelModule,
     UserModule,
     FileModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

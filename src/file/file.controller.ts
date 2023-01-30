@@ -8,7 +8,7 @@ import {
   UploadedFile,
   UseGuards,
   UseInterceptors,
-  Version
+  Version,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiBearerAuth, ApiBody, ApiConsumes } from '@nestjs/swagger';

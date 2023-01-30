@@ -1,7 +1,7 @@
 import {
   BadRequestException,
   ValidationPipe,
-  VersioningType
+  VersioningType,
 } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';

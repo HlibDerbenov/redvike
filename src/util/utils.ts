@@ -1,3 +1,5 @@
+import * as Crypto from 'crypto';
+
 export function isTheSameDay(
   timestamp_1: number,
   timestamp_2: number,
@@ -24,4 +26,14 @@ export function toHoursAndMinutes(totalMinutes: number): string {
     String(minutes),
     2,
   )}`; /* 540 => '09:00' */
+}
+
+function generateSha256WithSalt(value: string): string {
+  return Crypto.createHmac('sha256', 'redvike_secret')
+    .update(value)
+    .digest('hex');
+}
+
+export function comparePasswords(hashedPassword, password): boolean {
+  return hashedPassword === generateSha256WithSalt(password);
 }
